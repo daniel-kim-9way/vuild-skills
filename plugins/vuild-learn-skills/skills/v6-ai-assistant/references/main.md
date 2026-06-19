@@ -128,12 +128,20 @@ Claude Sonnet/Opus는 컨텍스트 200K 토큰(약 한국어 100,000자, 단행�
 학습자 자료가 10만자 이상:
 > "**Vector DB 모드** 추천이에요. 셋업 2~3시간, 하지만 한 번 만들어 두면 자료 100만 건까지도 돌아가요. 어디까지 갈래요?"
 
-```
-A) 일단 작게 시작 — 가장 중요한 자료 50~100건만 골라서 긴 컨텍스트로 빠르게
-B) 본격적으로 — Vector DB(ChromaDB) 셋업해서 전체 자료 처리
-```
+> "처음이라면 **작게 시작** 추천이에요. 실제로 동작하는 비서를 빨리 만들고, 나중에 확장하기."
 
-> "처음이라면 **A) 작게 시작** 추천이에요. 실제로 동작하는 비서를 빨리 만들고, 나중에 확장하기. 어느 쪽으로 갈까요?"
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "자료가 많은 편이에요. 어떤 방식으로 시작할까요?",
+      "header": "시작 방식",
+      "options": [
+        {"label": "작게 시작 (긴 컨텍스트)", "description": "가장 중요한 자료 50~100건만 골라서 긴 컨텍스트로 빠르게. 처음이라면 추천"},
+        {"label": "본격적으로 (Vector DB)", "description": "ChromaDB 셋업해서 전체 자료 처리. 셋업 2~3시간이지만 100만 건까지 확장 가능"}
+      ]
+    }
+  ]
+})
 
 학습자 응답에 따라 분기. **긴 컨텍스트 모드**로 가는 경로를 default로 하고, Vector DB는 advanced 케이스로 안내.
 
@@ -151,7 +159,20 @@ B) 본격적으로 — Vector DB(ChromaDB) 셋업해서 전체 자료 처리
 3. 본인 자료를 마크다운/텍스트 파일로 한 폴더에 모음
 ```
 
-> "Ruby가 익숙하면 Ruby로, JavaScript가 익숙하면 Node로 갈게요. 어느 거? (모르면 Ruby 추천 — 본인 Rails SaaS에 합치기 쉬움)"
+> "Ruby가 익숙하면 Ruby로, JavaScript가 익숙하면 Node로 갈게요."
+
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "어떤 언어로 비서 코드를 만들까요?",
+      "header": "언어 선택",
+      "options": [
+        {"label": "Ruby", "description": "본인 Rails SaaS에 합치기 쉬움. 모르겠으면 이쪽 추천"},
+        {"label": "Node.js", "description": "JavaScript가 익숙하다면"}
+      ]
+    }
+  ]
+})
 
 학습자 응답을 받음.
 
@@ -470,28 +491,22 @@ python ask.py "본인 첫 질문"
 
 > "5개 중 [N개] 정확. [좋아요/조금 더 손볼 부분이 있어요]."
 
-> "비서가 잘 돌아가니까, **언제 어디서 호출할지** 결정해요. 옵션:"
+> "비서가 잘 돌아가니까, **언제 어디서 호출할지** 결정해요."
 
-```
-A) 터미널에서 매번 호출 (오늘까지 한 방식)
-   → 빠르지만 매번 터미널 열어야 함.
-   → 본인이 개발자/터미널 익숙한 사람에게 OK.
-
-B) Claude Desktop에서 호출 (Skill로 등록)
-   → /my-assistant 같은 명령으로 부르기.
-   → 단, 자료가 본인 PC에서 자동 로드되도록 추가 셋업 필요.
-
-C) 본인 SaaS 안에 채팅 UI 추가
-   → app/views/assistant/chat.html.erb 같은 페이지 만들기.
-   → Turbo Stream으로 답변 스트리밍.
-   → 본인만 접근 가능하게 인증 추가.
-
-D) 디스코드/카톡 봇 형태 (6-3 응용)
-   → 디스코드 봇이 메시지를 받으면 본인 비서에 질문 전달.
-   → 본인이 어디 있든 모바일로 접근 가능.
-```
-
-> "본인은 어떻게 호출하고 싶어요?"
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "본인은 이 비서를 어떻게 호출하고 싶어요?",
+      "header": "호출 방법",
+      "options": [
+        {"label": "터미널에서 매번 호출", "description": "오늘까지 한 방식. 빠르지만 매번 터미널 열어야 함. 개발자/터미널 익숙한 사람에게 OK"},
+        {"label": "Claude Desktop (Skill 등록)", "description": "/my-assistant 같은 명령으로 부르기. 자료 자동 로드 추가 셋업 필요"},
+        {"label": "본인 SaaS 채팅 UI", "description": "app/views/assistant/chat.html.erb 페이지 + Turbo Stream 스트리밍. 본인만 접근하게 인증 추가"},
+        {"label": "디스코드/카톡 봇 (6-3 응용)", "description": "봇이 메시지를 받으면 비서에 질문 전달. 어디 있든 모바일로 접근 가능"}
+      ]
+    }
+  ]
+})
 
 학습자 응답에 따라 추가 가이드 (간략히):
 - A → 그대로 사용. `alias` 만들어서 `myai "질문"` 같이 짧게.

@@ -88,7 +88,25 @@
    → 호출은 Figma의 Plugins 메뉴.
 ```
 
-> "본인 작업과 호스트 도구를 고려하면, **이 작업은 [추천 옵션]이 맞아요**. 같은 옵션으로 갈까요? 아니면 다른 옵션이 끌리나요?"
+> "본인 작업과 호스트 도구를 고려하면, **이 작업은 [추천 옵션]이 맞아요**."
+
+추천 옵션을 보여 준 다음, AskUserQuestion으로 1개를 고르게 한다 (추천 옵션을 첫 번째 자리에 둔다):
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "어느 형태의 플러그인으로 만들까요?",
+      "header": "플러그인 형태",
+      "options": [
+        {"label": "Claude Code 플러그인", "description": "SKILL.md 파일 1개. 5분. 터미널/코드 작업이 호스트일 때 최고"},
+        {"label": "VS Code 확장", "description": "4~6개 파일. 30분~1시간. 에디터에서 종일 작업하는 사람용"},
+        {"label": "Figma 플러그인", "description": "4~5개 파일. 30분~1시간. 디자인 작업이 호스트일 때"}
+      ]
+    }
+  ]
+})
+```
 
 추천 로직 (학습자 답변 기반):
 - 호스트가 "Claude Code", "터미널", "Cursor", "GitHub" → **Claude Code 플러그인**

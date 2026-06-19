@@ -55,8 +55,23 @@
 
 ### Q1: 예산
 
-> "AI 도구(Claude)에 매월 얼마까지 지출이 부담 없으세요?
-> 예: '무료가 좋아요' / '2만~3만원' / '5만원 이상도 괜찮아요'"
+"AI 도구(Claude)에 매월 얼마까지 지출이 부담 없으세요?" — AskUserQuestion 도구로 묻는다:
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "AI 도구(Claude)에 매월 얼마까지 지출이 부담 없으세요?",
+      "header": "예산",
+      "options": [
+        {"label": "무료가 좋아요", "description": "$0 — Free 플랜"},
+        {"label": "2만~3만원", "description": "Pro 플랜 범위"},
+        {"label": "5만원 이상도 OK", "description": "속도 중요 — Max 후보"}
+      ]
+    }
+  ]
+})
+```
 
 **답변별 플랜 기준:**
 - 무료 → Free 추천
@@ -67,18 +82,47 @@
 
 ### Q2: 학습 속도
 
-> "이 커리큘럼을 어떤 페이스로 진행할 예정이에요?
-> (a) 천천히 — 주말·틈틈이 (b) 보통 — 주 2~3일 (c) 집중적으로 — 거의 매일"
+"이 커리큘럼을 어떤 페이스로 진행할 예정이에요?" — AskUserQuestion 도구로 묻는다:
 
-**집중형(c)이면 Max 고려**, 나머지는 Pro 이하.
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "이 커리큘럼을 어떤 페이스로 진행할 예정이에요?",
+      "header": "학습 속도",
+      "options": [
+        {"label": "천천히", "description": "주말·틈틈이"},
+        {"label": "보통", "description": "주 2~3일"},
+        {"label": "집중적으로", "description": "거의 매일"}
+      ]
+    }
+  ]
+})
+```
+
+**집중형("집중적으로")이면 Max 고려**, 나머지는 Pro 이하.
 
 ---
 
 ### Q3: API 기능 계획
 
-> "나중에 본인 서비스에 AI 기능을 붙일 계획이 있으신가요?
-> (예: 고객 문의 자동 답변, 내용 자동 요약, 리뷰 분석 등)
-> '아직 모르겠어요'도 괜찮아요."
+"나중에 본인 서비스에 AI 기능을 붙일 계획이 있으신가요? (예: 고객 문의 자동 답변, 내용 자동 요약, 리뷰 분석 등)" — AskUserQuestion 도구로 묻는다:
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "나중에 본인 서비스에 AI 기능을 붙일 계획이 있으신가요? (예: 고객 문의 자동 답변, 내용 자동 요약, 리뷰 분석)",
+      "header": "API 계획",
+      "options": [
+        {"label": "있어요", "description": "AI 기능을 붙일 생각이에요"},
+        {"label": "없어요", "description": "AI 기능 계획 없음"},
+        {"label": "아직 모르겠어요", "description": "나중에 결정"}
+      ]
+    }
+  ]
+})
+```
 
 **API 기능 계획 있으면** → console.anthropic.com 한도 설정 단계 필수 진행.
 
@@ -86,8 +130,23 @@
 
 ### Q4: 카드 등록 가능 여부
 
-> "claude.ai 구독 결제가 필요할 경우, 한국 신용/체크카드 사용 가능하신가요?
-> (대부분 한국 카드 정상 결제. 드물게 안 되면 PayPal 우회)"
+"claude.ai 구독 결제가 필요할 경우, 한국 신용/체크카드 사용 가능하신가요? (대부분 한국 카드 정상 결제. 드물게 안 되면 PayPal 우회)" — AskUserQuestion 도구로 묻는다:
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "claude.ai 구독 결제가 필요할 경우, 한국 신용/체크카드 사용 가능하신가요?",
+      "header": "카드 결제",
+      "options": [
+        {"label": "가능해요", "description": "한국 카드로 결제 가능"},
+        {"label": "카드가 없어요", "description": "결제 수단 없음 — Free 유지"},
+        {"label": "안 될 것 같아요", "description": "막히면 PayPal 우회 안내"}
+      ]
+    }
+  ]
+})
+```
 
 **카드 없거나 막히면** → Free 유지 + Ch.2 시작 전 재결제 안내.
 

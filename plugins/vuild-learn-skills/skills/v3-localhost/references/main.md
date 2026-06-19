@@ -152,21 +152,38 @@ http://localhost:3000
 
 > "화면이 떴으면 한 번 캡쳐해 두세요(`Cmd + Shift + 4` Mac / `Win + Shift + S` Windows). 본인이 만든 첫 서비스 화면이에요. 기록할 가치가 있어요."
 
-> "혹시 다음 메시지가 뜨면 — 어떤 메시지였나요?"
+> "브라우저에 무엇이 떴나요?"
+
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "localhost:3000에 접속했을 때 브라우저에 무엇이 떴나요?",
+      "header": "접속 결과",
+      "options": [
+        {"label": "본인 서비스 화면 정상", "description": "본인 빌드킷의 메인 페이지가 떴다 — 축하해요!"},
+        {"label": "도달할 수 없습니다 / ERR_CONNECTION_REFUSED", "description": "서버가 안 떴어요. 터미널 출력 확인 필요"},
+        {"label": "빨간 에러 페이지(Rails 에러)", "description": "코드 안에 문제가 있어요"},
+        {"label": "무한 로딩 (스피너만 돌고 안 뜸)", "description": "asset 빌드가 처음엔 느려요"}
+      ]
+    }
+  ]
+})
+
+답에 따라 안내:
 
 ```
-A. "이 페이지에 도달할 수 없습니다" / "ERR_CONNECTION_REFUSED"
+"본인 서비스 화면 정상"
+   → 축하해요. Turn 5로.
+
+"도달할 수 없습니다" / "ERR_CONNECTION_REFUSED"
    → 서버가 안 떴어요. 터미널로 돌아가서 출력 확인. (Turn 6)
 
-B. 빨간 에러 페이지(Rails 에러)
+"빨간 에러 페이지(Rails 에러)"
    → 코드 안에 문제가 있어요. 페이지 상단 빨간 글자 한 줄을 그대로
      Claude Code에 붙이고 "이 에러 풀어 줘".
 
-C. 무한 로딩 (스피너만 돌고 안 뜸)
+"무한 로딩 (스피너만 돌고 안 뜸)"
    → 1~2분 기다리세요. asset 빌드가 처음에는 느려요. 그 이상이면 Turn 6.
-
-D. 본인 서비스 화면 정상
-   → 축하해요. Turn 5로.
 ```
 
 ---

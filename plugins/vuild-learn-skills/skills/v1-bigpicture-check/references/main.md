@@ -64,10 +64,25 @@ Ch.1의 5개 lesson은 각각 한 부품을 깊게 봤어요:
 
 > "2단계: 도메인."
 >
-> "사용자가 본인 SaaS를 어떻게 찾아오나요? 다음 중 골라주세요. 또는 본인 답을 적어도 OK."
-> 1. "본인 도메인을 살 거예요 (예: bookmark.kr, mystudio.com)"
-> 2. "당장은 무료 도메인 사용 (예: 본인서비스.vercel.app)"
-> 3. "아직 모름"
+> "사용자가 본인 SaaS를 어떻게 찾아오나요?"
+
+AskUserQuestion 도구로 묻는다:
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "사용자가 본인 SaaS를 어떻게 찾아오나요?",
+      "header": "도메인",
+      "options": [
+        {"label": "본인 도메인을 살 거예요", "description": "예: bookmark.kr, mystudio.com"},
+        {"label": "무료 도메인 사용", "description": "당장은 본인서비스.vercel.app 등"},
+        {"label": "아직 모름", "description": "나중에 결정"}
+      ]
+    }
+  ]
+})
+```
 
 학생 답변 받기. 도메인 살 계획이면 어떤 도메인으로 할지 한 줄 메모.
 
@@ -82,12 +97,27 @@ Ch.1의 5개 lesson은 각각 한 부품을 깊게 봤어요:
 
 > "3단계: 서버."
 >
-> "본인 코드는 어디에 띄울 거예요? 다음 중 골라주세요."
-> 1. "Railway ($5/월~) — Rails/Django 빌드킷 추천"
-> 2. "Render (무료~) — 트래픽 적은 시작용"
-> 3. "Vercel (무료~) — Next.js 등 프론트 위주"
-> 4. "AWS / GCP — 본격 운영 (비추 — 비개발자에겐 복잡)"
-> 5. "아직 모름"
+> "본인 코드는 어디에 띄울 거예요?"
+
+AskUserQuestion 도구로 묻는다:
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "본인 코드는 어디에 띄울 거예요?",
+      "header": "호스팅",
+      "options": [
+        {"label": "Railway", "description": "$5/월~ — Rails/Django 빌드킷 추천"},
+        {"label": "Render", "description": "무료~ — 트래픽 적은 시작용"},
+        {"label": "Vercel", "description": "무료~ — Next.js 등 프론트 위주"},
+        {"label": "AWS / GCP", "description": "본격 운영 (비추 — 비개발자에겐 복잡)"},
+        {"label": "아직 모름", "description": "나중에 결정"}
+      ]
+    }
+  ]
+})
+```
 
 학생 답변 받기. 답변에 맞춰 한 줄 코멘트:
 - **Railway** → "좋아요. LEARN 빌드킷의 기본 호스팅. 배포 명령 한 줄로 됨."
@@ -124,13 +154,29 @@ DB 종류:
 >
 > "1-5에서 본인 SaaS에 어떤 외부 서비스가 필요한지 1차 스케치 했어요. 다시 떠올려 봐요."
 >
-> "다음 중 본인 SaaS에 필요한 것을 다 골라주세요 (복수 선택 OK)."
-> 1. "OAuth 로그인 — 구글/카카오/애플"
-> 2. "결제 — 토스페이먼츠 (월 구독 또는 단건)"
-> 3. "AI — Claude API (요약/분류/대화)"
-> 4. "알림 — 카카오 비즈니스 / 이메일 (SendGrid)"
-> 5. "기타 — 지도/SMS/이미지생성/번역…"
-> 6. "없음 — 모두 자체 처리"
+> "본인 SaaS에 필요한 것을 다 골라주세요."
+
+AskUserQuestion 도구로 묻는다 (복수 선택):
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "본인 SaaS에 필요한 외부 서비스를 다 골라주세요.",
+      "header": "외부 서비스",
+      "multiSelect": true,
+      "options": [
+        {"label": "OAuth 로그인", "description": "구글/카카오/애플"},
+        {"label": "결제", "description": "토스페이먼츠 (월 구독 또는 단건)"},
+        {"label": "AI", "description": "Claude API (요약/분류/대화)"},
+        {"label": "알림", "description": "카카오 비즈니스 / 이메일 (SendGrid)"},
+        {"label": "기타", "description": "지도/SMS/이미지생성/번역…"},
+        {"label": "없음", "description": "모두 자체 처리"}
+      ]
+    }
+  ]
+})
+```
 
 학생 답변 받기. 답변에 맞춰 짧게 코멘트:
 - OAuth 안 골랐으면: "OAuth는 거의 필수예요. 비번 직접 받는 건 책임이 무거워요. (1-2 lesson)"

@@ -102,6 +102,21 @@
 
 > "본인 티켓이 ‘[학생이 고른 단위]’라면, 가장 먼저 누구를 부르는 게 자연스러울까요?"
 
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "이 티켓에 가장 먼저 부를 에이전트는?",
+      "header": "에이전트 배정",
+      "options": [
+        {"label": "02-rails-dev", "description": "Rails 개발자 — 백엔드·DB·API·테스트 코드"},
+        {"label": "ux-designer", "description": "UX·UI 디자이너 — 화면 레이아웃·디자인 시스템"},
+        {"label": "03-review-agent", "description": "리뷰어 — 코드 품질·성능 점검"},
+        {"label": "04-security-agent", "description": "보안 전문가 — 인증·키·취약점 점검"}
+      ]
+    }
+  ]
+})
+
 학생 답에 따라 가이드:
 
 **학생이 "ux-designer"를 골랐고 티켓이 새 화면이라면:**

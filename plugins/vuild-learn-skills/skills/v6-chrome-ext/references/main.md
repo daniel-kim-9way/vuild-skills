@@ -92,14 +92,7 @@
 
 > "본인 익스텐션이 4가지 능력 중 어디 어디 쓰는지 정해요. 이게 manifest.json의 권한을 결정해요."
 
-```
-1. 현재 페이지 내용 읽기 (예: 본문 텍스트, URL, 메타데이터)
-2. 현재 페이지 수정 (예: 단어 강조, 광고 숨기기, 툴팁 추가)
-3. 주소창 옆 팝업창 띄우기 (예: 번역 결과, 옵션 메뉴, 결과 표시)
-4. 외부 API 호출 (예: Claude, Notion, Google Drive, 본인 SaaS)
-```
-
-> "본인 익스텐션은 위 중 어느 항목들이 필요해요? (1개 또는 여러 개) 예시:"
+먼저 참고용 예시를 보여 준다:
 
 ```
 "긴 기사 요약 → 팝업" → 1번 + 3번 + 4번 (Claude API)
@@ -108,7 +101,25 @@
 "GitHub 이슈 한국어 번역" → 1번 + 2번 + 4번 (Claude API)
 ```
 
-> "본인 거를 분류해서 알려 주세요."
+그 다음 AskUserQuestion으로 필요한 능력을 (여러 개 가능) 고르게 한다:
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "본인 익스텐션은 4가지 능력 중 어느 것들이 필요해요? (여러 개 선택 가능)",
+      "header": "익스텐션 능력",
+      "multiSelect": true,
+      "options": [
+        {"label": "1. 페이지 읽기", "description": "현재 페이지 내용 읽기 (본문 텍스트, URL, 메타데이터)"},
+        {"label": "2. 페이지 수정", "description": "현재 페이지 수정 (단어 강조, 광고 숨기기, 툴팁 추가)"},
+        {"label": "3. 팝업창", "description": "주소창 옆 팝업창 띄우기 (번역 결과, 옵션 메뉴, 결과 표시)"},
+        {"label": "4. 외부 API 호출", "description": "Claude, Notion, Google Drive, 본인 SaaS 호출"}
+      ]
+    }
+  ]
+})
+```
 
 학습자 답변을 받으면, 그에 맞는 권한 자동 결정:
 - 1번 (페이지 읽기) → `permissions: ["activeTab"]` + `host_permissions` 또는 `content_scripts`
