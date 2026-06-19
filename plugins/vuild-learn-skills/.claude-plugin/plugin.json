@@ -1,0 +1,9 @@
+{
+  "name": "vuild-learn-skills",
+  "description": "Vuild LEARN 커리큘럼 스킬 29개 (개발환경 install + C1 VALUE ~ C8 비즈니스 확장)",
+  "version": "2.1.4",
+  "author": {
+    "name": "Vuild"
+  },
+  "homepage": "https://vuild.kr/learn"
+}
