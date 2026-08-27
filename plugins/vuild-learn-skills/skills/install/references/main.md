@@ -28,7 +28,7 @@ SKILL.md의 진행 흐름에서 각 항목을 안내할 때 참고하는 상세 
 - 사용 흐름: **Projects 옆 ＋ → 새 프로젝트 만들기(빈 폴더에서 시작) → 이름 → 프로젝트 생성 → 그 폴더에서 열린 터미널에 `claude`**
 - ⚠️ **새 프로젝트 만들기**로 만들면 Orca가 폴더 생성 + git 초기화까지 해준다. 반면 **폴더 찾아보기**로 기존 폴더(압축만 푼 빌드킷 등)를 올릴 때는 git이 꺼져 있으면 먼저 `git init` + 커밋 1개가 필요하다.
 
-## 4) Node.js — npm/npx (기본 필수)
+## 4) Node.js — 패키지 설치 도구(npm/npx)
 - 공통: https://nodejs.org 의 **LTS** 설치
 - WSL/Linux: `sudo apt install -y nodejs npm` (버전이 낮으면 nvm 또는 mise 권장)
 - 확인: `node --version` **그리고 `npm --version`** (둘 다 나와야 함, node는 18 이상)
