@@ -35,6 +35,15 @@ SKILL.md의 진행 흐름에서 각 항목을 안내할 때 참고하는 상세 
 - 쓰이는 곳: Railway CLI(`npm i -g @railway/cli`), Vuild 학습 추적(`npx vuild-cli`) 등 대부분의 도구
 - ⚠️ **PATH**: "명령을 찾을 수 없음"이면 설치 경로가 PATH에 없는 것. Windows는 설치 마법사의 "Add to PATH" 체크(기본값), Mac·Linux는 `~/.zshrc`/`~/.bashrc`에 경로 추가. **수정 후 터미널 재시작 필수**
 
+## 4-1) Ruby — 빌드킷 엔진 (웹서비스 필수)
+- Windows: https://rubyinstaller.org 에서 **3.2 이상** 설치 → 설치 마법사에서 PATH 추가 체크
+- Mac: `brew install ruby@3.3` 또는 `mise install ruby@3.3`
+- WSL/Linux: `sudo apt install -y ruby-full` (버전이 낮으면 mise/rbenv 권장)
+- 확인: `ruby --version` (3.2 이상이어야 함)
+- 쓰이는 곳: Ch.4 빌드킷의 `bundle install`·`bin/dev`. **없으면 그 자리에서 막힌다**
+- ⚠️ OS마다 방법이 제각각이라 **직접 찾지 말고 "Ruby 3.2 이상 설치해줘, 내 OS에 맞게"로 AI에게 맡기는 게 빠르다.**
+- ⚠️ Windows에서 설치 후 `ruby` 명령이 없다고 나오면 **터미널(및 Orca)을 껐다 켠다.**
+
 ## 5) GitHub 계정 — 코드 백업·배포
 - https://github.com 가입 + **이메일 인증**까지
 - "가입 끝났으면 알려주세요"로 다음 단계

@@ -9,7 +9,7 @@
       "name": "vuild-learn-skills",
       "source": "./plugins/vuild-learn-skills",
       "description": "Vuild LEARN 커리큘럼 스킬 (개발환경 install + C1 VALUE ~ C8). Orca + Claude Code 기준으로 갱신. vuild.kr/learn 강의 흐름을 Claude Code 안에서 단계별로 안내합니다.",
-      "version": "2.3.0",
+      "version": "2.3.1",
       "author": {
         "name": "Vuild"
       }
