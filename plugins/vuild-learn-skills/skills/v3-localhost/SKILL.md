@@ -13,7 +13,7 @@ description: "bin/dev 또는 npm run dev로 본인 PC에 서버를 띄우고 loc
 
 ## 사전 조건
 - Ch.4-5(빌드킷 `/setup`) 완료 — `.env` 파일이 있고 `bundle install`이 끝나 있음
-- Antigravity가 본인 PC에 깔려 있고 본인 빌드킷 폴더가 열려 있음
+- 본인 빌드킷 폴더가 Orca 작업대에 올라가 있고 작업이 열려 있음
 - 사용 중인 브라우저(Chrome / Edge / Safari) 1개
 
 ## 대화형 학습 프로토콜

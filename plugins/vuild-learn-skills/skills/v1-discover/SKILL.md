@@ -1,6 +1,6 @@
 ---
 name: v1-discover
-description: "Claude AI 도구 발견 + 비용 시뮬레이터. claude.ai / Claude Desktop / Claude Code / API 4가지 차이를 정리하고, 예산·학습 속도 기반 구독 플랜을 추천하고, API 비용 알람을 설정하도록 안내한다. Triggers: \"v1-discover\", \"AI 도구 추천\", \"Claude 플랜\", \"비용 시뮬레이터\""
+description: "Claude AI 도구 발견 + 비용 시뮬레이터. claude.ai / Claude Code / API 3가지 차이를 정리하고, 예산·학습 속도 기반 구독 플랜을 추천하고, API 비용 알람을 설정하도록 안내한다. Triggers: \"v1-discover\", \"AI 도구 추천\", \"Claude 플랜\", \"비용 시뮬레이터\""
 ---
 
 # V1: AI 도구 발견 + 비용 시뮬레이터
@@ -11,8 +11,8 @@ description: "Claude AI 도구 발견 + 비용 시뮬레이터. claude.ai / Clau
 - Anthropic Console에서 API 비용 한도 + 알람을 설정해 둔다
 
 ## 사전 조건
-- Claude Desktop 설치 완료 (Ch.0-2)
-- 이 스킬은 Claude Desktop 슬래시 스킬로 실행
+- Ch.0-1 완료 (Orca + Claude Code 작업대 세팅)
+- 이 스킬은 Orca의 Claude Code에서 슬래시 스킬로 실행
 
 ## 진행 방식
 

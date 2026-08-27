@@ -2,7 +2,7 @@
 
 ## 사용 도구
 - C1-C2: Claude Code Desktop
-- C3-C8: 코드 에디터 + Claude Code 확장 프로그램
+- C3-C8: Orca + Claude Code
 
 ---
 

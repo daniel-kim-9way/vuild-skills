@@ -11,7 +11,7 @@ description: "0-3 자기소개 페이지를 base로 사용자 가입 기능을 �
 - 자주 등장하는 영어 약어 30개(HTTP, DNS, API, JSON, OAuth 등)의 의미를 한 줄로 안다
 
 ## 사전 조건
-- Ch.0 완료 (Claude Desktop 설치 + 0-3 자기소개 페이지 1장)
+- Ch.0 완료 (Orca + Claude Code 세팅 + 자기소개 페이지 1장)
 - 웹 브라우저 사용 가능
 - "본인이 만들 SaaS 아이디어"는 아직 모호해도 OK
 

@@ -372,4 +372,4 @@ AskUserQuestion({
 >
 > "다음 lesson은 1-2 — 가입 버튼 → DB 저장 흐름을 더 자세히 따라가요. 비밀번호는 왜 해시? OAuth는 왜 더 안전? 손에 잡히게 풀어요."
 >
-> "Claude Desktop 새 채팅에서 `/v1-data-flow`를 호출하면 다음 lesson 시작."
+> "Orca의 Claude Code 대화창에서 `/v1-data-flow`를 호출하면 다음 lesson 시작."

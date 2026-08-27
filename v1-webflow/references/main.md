@@ -222,6 +222,31 @@ Repository  — 코드 저장소. 한 프로젝트 코드 + 역사 전체.
 >
 > "지금 본인에게 가장 막막해 보였던 약어 한두 개를 골라주세요. 그 한두 개를 더 자세히 풀어드릴게요."
 
+AskUserQuestion으로 물어봅니다 (한두 개 고르게 함 → multiSelect):
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "가장 막막해 보였던 약어를 골라주세요 (한두 개). 더 자세히 풀어드릴게요.",
+      "header": "더 풀 약어",
+      "multiSelect": true,
+      "options": [
+        {"label": "HTTP / HTTPS", "description": "웹 데이터 주고받는 약속 (+ 암호화)"},
+        {"label": "REST API / JSON", "description": "서버에 일 시키는 표준 방식 + 데이터 형식"},
+        {"label": "DB / SQL / ORM", "description": "데이터 저장소 + 묻는 언어 + 통역"},
+        {"label": "Domain / DNS", "description": "주소 이름 + IP 변환 시스템"},
+        {"label": "Hosting / Cloud / CDN", "description": "서버 임대 + 클라우드 + 캐시"},
+        {"label": "OAuth / API key / .env", "description": "구글 로그인 + 외부 인증 키 + 비밀 서랍"},
+        {"label": "Session / Cookie / JWT", "description": "로그인 유지 / 브라우저 메모지 / 입장권"},
+        {"label": "CORS / GraphQL / WebSocket", "description": "도메인 호출 허용 / 필드 선택 / 실시간 통신"},
+        {"label": "그 외 / 다 괜찮아요", "description": "특별히 막막한 약어 없음 — 넘어감"}
+      ]
+    }
+  ]
+})
+```
+
 학생이 약어를 고르면 한 개당 3-5문장으로 추가 설명. 본인 SaaS 맥락에 맞춰 예시 들기.
 
 ---
@@ -347,4 +372,4 @@ Repository  — 코드 저장소. 한 프로젝트 코드 + 역사 전체.
 >
 > "다음 lesson은 1-2 — 가입 버튼 → DB 저장 흐름을 더 자세히 따라가요. 비밀번호는 왜 해시? OAuth는 왜 더 안전? 손에 잡히게 풀어요."
 >
-> "Claude Desktop 새 채팅에서 `/v1-data-flow`를 호출하면 다음 lesson 시작."
+> "Orca의 Claude Code 대화창에서 `/v1-data-flow`를 호출하면 다음 lesson 시작."

@@ -12,7 +12,7 @@ description: "랜딩 페이지 제작. Triggers: \"v4 landing\", \"v4-landing\",
 
 ## 사전 조건
 - `/v4-design` 완료 (Tailwind CSS 디자인 경험)
-- 코드 에디터 + Claude Code 확장 프로그램에서 진행
+- Orca의 Claude Code 대화창에서 진행
 
 ## 대화형 학습 프로토콜
 

@@ -341,4 +341,4 @@ notes 표
 >
 > "이 초안은 Ch.3 PLAN에서 다듬어지고, Ch.4 BUILD에서 진짜 마이그레이션 코드로 변해요."
 >
-> "다음은 1-3 — 코딩 환경(에디터·터미널·git)이에요. 이건 `/v1-director` 스킬로 진행하니, Claude Desktop에서 `/v1-director` 호출하시면 됩니다."
+> "다음은 1-3 — 코딩 환경(에디터·터미널·git)이에요. 이건 `/v1-director` 스킬로 진행하니, Orca의 Claude Code에서 `/v1-director` 호출하시면 됩니다."

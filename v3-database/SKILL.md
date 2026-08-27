@@ -13,7 +13,7 @@ description: "데이터베이스 + 모델 만들기. C3 BUILD 여섯 번째 스�
 ## 사전 조건
 - `/v3-git-save` 완료 (Git 기본 사용 경험)
 - C2에서 작성한 설계서 (my-service-design-v1.0.md의 데이터 구조 참고)
-- 코드 에디터 + Claude Code 확장 프로그램에서 진행
+- Orca의 Claude Code 대화창에서 진행
 
 ## STOP PROTOCOL
 

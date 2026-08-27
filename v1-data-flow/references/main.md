@@ -202,12 +202,24 @@ OAuth 흐름 출력:
 >
 > "그래서 비개발자가 처음 SaaS를 만들 때는 **OAuth부터 붙이는 걸 강추**해요. 코드 더 짧고, 안전하고, 사용자 가입도 빠름. Ch.4-8에서 진짜 붙여요."
 
-질문:
-> "본인 SaaS는 자체 비번? OAuth? 어떻게 하실 건가요?"
-> - "(추천) OAuth — 구글 또는 카카오"
-> - "둘 다 — OAuth + 이메일/비번 둘 다 제공"
-> - "자체 비번만 — 특별한 이유가 있어서"
-> - "아직 모름 — 나중에 결정"
+질문: "본인 SaaS는 자체 비번? OAuth? 어떻게 하실 건가요?" — AskUserQuestion 도구로 묻는다:
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "본인 SaaS는 로그인을 어떻게 하실 건가요?",
+      "header": "인증 방식",
+      "options": [
+        {"label": "OAuth (추천)", "description": "구글 또는 카카오로 로그인"},
+        {"label": "둘 다", "description": "OAuth + 이메일/비번 둘 다 제공"},
+        {"label": "자체 비번만", "description": "특별한 이유가 있어서"},
+        {"label": "아직 모름", "description": "나중에 결정"}
+      ]
+    }
+  ]
+})
+```
 
 학생 답변 받기.
 
@@ -329,4 +341,4 @@ notes 표
 >
 > "이 초안은 Ch.3 PLAN에서 다듬어지고, Ch.4 BUILD에서 진짜 마이그레이션 코드로 변해요."
 >
-> "다음은 1-3 — 코딩 환경(에디터·터미널·git)이에요. 이건 `/v1-director` 스킬로 진행하니, Claude Desktop에서 `/v1-director` 호출하시면 됩니다."
+> "다음은 1-3 — 코딩 환경(에디터·터미널·git)이에요. 이건 `/v1-director` 스킬로 진행하니, Orca의 Claude Code에서 `/v1-director` 호출하시면 됩니다."

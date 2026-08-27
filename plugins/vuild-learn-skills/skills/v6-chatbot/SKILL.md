@@ -6,7 +6,7 @@ description: "Claude API + 카카오톡 채널/디스코드 봇으로 본인 도
 # V6: 챗봇 만들기 실습
 
 ## 학습 목표
-- Claude API가 정확히 뭐고 Claude Desktop과 어떻게 다른지 이해한다
+- Claude API가 정확히 뭐고 Claude Code와 어떻게 다른지 이해한다
 - 본인 도메인에 맞는 채널(카카오톡 채널 / 디스코드 봇) 1개를 결정한다
 - 본인 도메인 정보를 system prompt로 주입한 챗봇 1개를 실제로 띄우고, 친구/지인이 메시지를 보내면 답이 가는지 확인한다
 

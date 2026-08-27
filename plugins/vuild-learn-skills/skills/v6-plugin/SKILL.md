@@ -12,7 +12,7 @@ description: "Claude Code/VS Code/Figma 플러그인을 본인 워크플로우 �
 
 ## 사전 조건
 - Ch.5 완료 (또는 본인 SaaS 출시 후 다음 단계 학습자)
-- Claude Desktop 또는 Claude Code 사용 가능
+- Orca + Claude Code 사용 가능
 - 본인이 매주 1회 이상 반복하는 컴퓨터 작업이 있을 것 (없어도 진행 중에 같이 찾음)
 
 ## 대화형 학습 프로토콜

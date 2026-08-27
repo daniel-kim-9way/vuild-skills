@@ -12,7 +12,7 @@ description: "홈페이지 + 회원가입/로그인. C3 BUILD 일곱 번째 스�
 
 ## 사전 조건
 - `/v3-database` 완료 (모델과 마이그레이션 경험)
-- 코드 에디터 + Claude Code 확장 프로그램에서 진행
+- Orca의 Claude Code 대화창에서 진행
 
 ## STOP PROTOCOL
 

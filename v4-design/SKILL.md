@@ -12,7 +12,7 @@ description: "Tailwind CSS로 디자인 입히기. Triggers: \"v4 design\", \"v4
 
 ## 사전 조건
 - `/v4-warmup` 완료 (서비스 실행 및 컨텍스트 회복)
-- 코드 에디터 + Claude Code 확장 프로그램에서 진행
+- Orca의 Claude Code 대화창에서 진행
 
 ## 대화형 학습 프로토콜
 

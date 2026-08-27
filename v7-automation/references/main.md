@@ -32,7 +32,27 @@ Rails Solid Queue가 아니라 **외부 도구 연결**이 핵심.
 
 > "첫 번째 자동화는 **Zapier**를 강력 추천해요. 로그인 후 클릭 몇 번이면 연결됩니다."
 
-> "어떤 도구로 해볼까요? 이유도 한 줄로 말해 주세요."
+AskUserQuestion으로 도구를 1개 고르게 한다:
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "어떤 도구로 해볼까요?",
+      "header": "자동화 도구",
+      "options": [
+        {"label": "Zapier", "description": "첫 시도 강력 추천. 웹 UI, 5~15분, 무료 100 task/월"},
+        {"label": "n8n", "description": "셀프 호스팅 필요. 무료 무제한, 30~60분, 코드 익숙해지면"},
+        {"label": "자체 webhook (Rails)", "description": "직접 코드 작성. 무제한(서버 비용만), 수 시간, 이미 Rails 익숙하면"}
+      ]
+    }
+  ]
+})
+```
+
+도구를 고른 뒤, 선택 이유는 자유롭게 한 줄로 물어본다:
+
+> "그 도구를 고른 이유를 한 줄로 말해 주세요. (산출물 파일에 기록돼요)"
 
 학생 답 듣고 → 해당 도구 기준으로 다음 단계 진행.
 
@@ -54,10 +74,23 @@ Rails Solid Queue가 아니라 **외부 도구 연결**이 핵심.
 
 > "이 중 오늘 연결해볼 액션을 골라봐요. 1개부터 시작해도 충분해요."
 
+AskUserQuestion으로 액션을 (여러 개 가능) 고르게 한다:
+
 ```
-□ Slack 알림
-□ Notion 행 추가
-□ 환영 메일
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "오늘 연결해볼 액션을 골라봐요. 1개부터 시작해도 충분해요. (여러 개 선택 가능)",
+      "header": "연결할 액션",
+      "multiSelect": true,
+      "options": [
+        {"label": "Slack 알림", "description": "Slack 채널에 알림 메시지 (신규 가입: OOO님)"},
+        {"label": "Notion 행 추가", "description": "Notion 데이터베이스에 행 추가 (이름, 이메일, 가입일)"},
+        {"label": "환영 메일", "description": "환영 메일 발송 (SendGrid / Gmail)"}
+      ]
+    }
+  ]
+})
 ```
 
 학생이 선택하면 → 해당 액션 기준으로 안내.

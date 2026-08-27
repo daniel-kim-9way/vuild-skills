@@ -11,7 +11,7 @@ description: "배포 — 세상에 공개하기. THE MOMENT. Triggers: \"v4 depl
 - THE MOMENT: 라이브 URL을 받아 누구에게든 공유할 수 있다
 
 ## 사전 조건
-- 코드 에디터 + Claude Code 확장 프로그램에서 진행
+- Orca의 Claude Code 대화창에서 진행
 - Vuild 대시보드에서 출시 정보 5종 입력 완료 (단계 0에서 진행)
 
 ## 대화형 학습 프로토콜

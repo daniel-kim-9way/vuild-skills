@@ -148,7 +148,7 @@ AskUserQuestion({
 
 **방법 A — Claude Code 한 줄 (가장 빠름):**
 
-> "Antigravity 하단 Claude Code 채팅에 다음을 그대로 붙여 넣어 보세요:"
+> "Orca의 Claude Code 대화창에 다음을 그대로 붙여 넣어 보세요:"
 
 ```
 /ticket [본인이 정한 제목]

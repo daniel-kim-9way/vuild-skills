@@ -12,7 +12,7 @@ description: "체크포인트 - 내 서비스 동작 확인 + GitHub. C3 BUILD �
 
 ## 사전 조건
 - `/v3-feature-2` 완료 (두 번째 핵심 기능 구현)
-- 코드 에디터 + Claude Code 확장 프로그램에서 진행
+- Orca의 Claude Code 대화창에서 진행
 
 ## STOP PROTOCOL
 

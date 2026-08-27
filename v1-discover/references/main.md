@@ -3,22 +3,21 @@
 이 스킬은 학습자가 Claude AI 도구를 처음 만나는 시점에 실행된다.
 "Claude 종류가 왜 이렇게 많아?" 혼란을 해소하고, 예산에 맞는 플랜을 골라주고, API 비용 폭주를 막는 안전장치를 설정하도록 안내하는 것이 목적이다.
 
-### Claude 4가지 도구 — 같은 두뇌, 다른 창구
+### Claude 3가지 창구 — 같은 두뇌, 다른 창구
 
 | 도구 | 어디서 | 스킬 가능? | 언제 쓰나 |
 |---|---|---|---|
 | claude.ai | 브라우저 (웹) | ❌ | 가벼운 대화·번역·글 다듬기 |
-| Claude Desktop | 데스크톱 앱 (Mac/Win) | ✅ 슬래시 스킬 | LEARN Ch.0~Ch.3 대부분 |
-| Claude Code | 터미널 (CLI) | ✅ + 코드 수정 | Ch.4 BUILD 실제 코딩 |
+| Claude Code | 본인 PC (Orca 작업대 안) | ✅ + 파일 직접 생성·수정 | LEARN의 스킬 전부 + Ch.4 실제 코딩 |
 | Claude API | 본인 코드 안에서 호출 | N/A | 본인 SaaS에 AI 기능 붙일 때 |
 
-핵심: 지금(Ch.0~Ch.3)은 **Claude Desktop 슬래시 스킬**이 메인. Ch.4부터 Claude Code, Ch.4-13 이후 API.
+핵심: Ch.0부터 Ch.5까지 **Orca 안의 Claude Code**가 메인이고, Ch.4-13 이후 API를 더한다. Orca는 창구가 아니라 Claude Code를 올려 두는 **작업대**다.
 
 ### 구독 플랜 기준표
 
 | 플랜 | 월 비용 | 대화량 | 권장 단계 |
 |---|---|---|---|
-| Free | $0 | 제한 (5시간마다 리셋) | Ch.0~Ch.1 맛보기 |
+| Free | $0 | 제한 (5시간마다 리셋) | ⚠️ Claude Code 사용 불가 — 웹 채팅 전용 |
 | Pro | $20 (약 28,000원) | Free × 5 | Ch.2~Ch.5 본격 학습 |
 | Max $100 | $100 (약 14만원) | Pro × 5 | Ch.4 BUILD 집중주 |
 | Max $200 | $200 (약 28만원) | Max × 2 | 전업 빌더 / 여러 프로젝트 병행 |
@@ -55,8 +54,23 @@
 
 ### Q1: 예산
 
-> "AI 도구(Claude)에 매월 얼마까지 지출이 부담 없으세요?
-> 예: '무료가 좋아요' / '2만~3만원' / '5만원 이상도 괜찮아요'"
+"AI 도구(Claude)에 매월 얼마까지 지출이 부담 없으세요?" — AskUserQuestion 도구로 묻는다:
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "AI 도구(Claude)에 매월 얼마까지 지출이 부담 없으세요?",
+      "header": "예산",
+      "options": [
+        {"label": "무료가 좋아요", "description": "$0 — Free 플랜"},
+        {"label": "2만~3만원", "description": "Pro 플랜 범위"},
+        {"label": "5만원 이상도 OK", "description": "속도 중요 — Max 후보"}
+      ]
+    }
+  ]
+})
+```
 
 **답변별 플랜 기준:**
 - 무료 → Free 추천
@@ -67,18 +81,47 @@
 
 ### Q2: 학습 속도
 
-> "이 커리큘럼을 어떤 페이스로 진행할 예정이에요?
-> (a) 천천히 — 주말·틈틈이 (b) 보통 — 주 2~3일 (c) 집중적으로 — 거의 매일"
+"이 커리큘럼을 어떤 페이스로 진행할 예정이에요?" — AskUserQuestion 도구로 묻는다:
 
-**집중형(c)이면 Max 고려**, 나머지는 Pro 이하.
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "이 커리큘럼을 어떤 페이스로 진행할 예정이에요?",
+      "header": "학습 속도",
+      "options": [
+        {"label": "천천히", "description": "주말·틈틈이"},
+        {"label": "보통", "description": "주 2~3일"},
+        {"label": "집중적으로", "description": "거의 매일"}
+      ]
+    }
+  ]
+})
+```
+
+**집중형("집중적으로")이면 Max 고려**, 나머지는 Pro 이하.
 
 ---
 
 ### Q3: API 기능 계획
 
-> "나중에 본인 서비스에 AI 기능을 붙일 계획이 있으신가요?
-> (예: 고객 문의 자동 답변, 내용 자동 요약, 리뷰 분석 등)
-> '아직 모르겠어요'도 괜찮아요."
+"나중에 본인 서비스에 AI 기능을 붙일 계획이 있으신가요? (예: 고객 문의 자동 답변, 내용 자동 요약, 리뷰 분석 등)" — AskUserQuestion 도구로 묻는다:
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "나중에 본인 서비스에 AI 기능을 붙일 계획이 있으신가요? (예: 고객 문의 자동 답변, 내용 자동 요약, 리뷰 분석)",
+      "header": "API 계획",
+      "options": [
+        {"label": "있어요", "description": "AI 기능을 붙일 생각이에요"},
+        {"label": "없어요", "description": "AI 기능 계획 없음"},
+        {"label": "아직 모르겠어요", "description": "나중에 결정"}
+      ]
+    }
+  ]
+})
+```
 
 **API 기능 계획 있으면** → console.anthropic.com 한도 설정 단계 필수 진행.
 
@@ -86,8 +129,23 @@
 
 ### Q4: 카드 등록 가능 여부
 
-> "claude.ai 구독 결제가 필요할 경우, 한국 신용/체크카드 사용 가능하신가요?
-> (대부분 한국 카드 정상 결제. 드물게 안 되면 PayPal 우회)"
+"claude.ai 구독 결제가 필요할 경우, 한국 신용/체크카드 사용 가능하신가요? (대부분 한국 카드 정상 결제. 드물게 안 되면 PayPal 우회)" — AskUserQuestion 도구로 묻는다:
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "claude.ai 구독 결제가 필요할 경우, 한국 신용/체크카드 사용 가능하신가요?",
+      "header": "카드 결제",
+      "options": [
+        {"label": "가능해요", "description": "한국 카드로 결제 가능"},
+        {"label": "카드가 없어요", "description": "결제 수단 없음 — Free 유지"},
+        {"label": "안 될 것 같아요", "description": "막히면 PayPal 우회 안내"}
+      ]
+    }
+  ]
+})
+```
 
 **카드 없거나 막히면** → Free 유지 + Ch.2 시작 전 재결제 안내.
 
@@ -142,12 +200,11 @@
 - **이유**: [예산 · 학습 속도 · API 계획 기준]
 - **업그레이드 시점**: [Ch.XX 시작 전]
 
-## Claude 4가지 도구 요약
+## Claude 3가지 창구 요약
 | 도구 | 역할 |
 |---|---|
 | claude.ai | 브라우저 — 가벼운 대화 |
-| Claude Desktop | 슬래시 스킬 — Ch.0~Ch.3 메인 |
-| Claude Code | 터미널 코딩 — Ch.4 메인 |
+| Claude Code | 본인 PC(Orca 안) — 스킬·코딩 메인 |
 | Claude API | 본인 SaaS AI 기능 |
 
 ## API 안전장치 체크리스트

@@ -12,7 +12,7 @@ description: "Git - 코드 저장의 세이브 포인트. C3 BUILD 다섯 번째
 
 ## 사전 조건
 - `/v3-rails-start` 완료 (Rails 프로젝트 존재)
-- 코드 에디터 + Claude Code 확장 프로그램에서 진행
+- Orca의 Claude Code 대화창에서 진행
 
 ## STOP PROTOCOL
 

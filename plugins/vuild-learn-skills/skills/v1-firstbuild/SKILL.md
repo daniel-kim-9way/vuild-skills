@@ -11,7 +11,7 @@ description: "AI와 30분 만에 자기소개 페이지 만들기. 이름·소�
 - (선택) Netlify Drop으로 진짜 인터넷 URL을 손에 쥐고 한 사람에게 카톡으로 공유한다
 
 ## 사전 조건
-- Claude Desktop 설치 완료 (Ch.0-2)
+- Ch.0-1 완료 (Orca + Claude Code 작업대 세팅)
 
 ## 진행 방식
 

@@ -13,7 +13,7 @@ description: "빌드킷에 없는 신규 기능을 직접 티켓으로 만들고
 ## 사전 조건
 - Ch.4-6 완료 (빌드킷 기존 티켓 1개 이상 `/backlog [ID]`로 실행해 본 경험)
 - 본인 SaaS 프로젝트가 vuild.kr에 등록되어 있고 `vuild.kr/projects/{본인ID}/build/board`에 접근 가능
-- Antigravity + Claude Code가 본인 PC에 깔려 있고 본인 빌드킷 폴더에서 작업 중
+- Orca + Claude Code에서 본인 빌드킷 폴더의 작업이 열려 있음
 
 ## 대화형 학습 프로토콜
 

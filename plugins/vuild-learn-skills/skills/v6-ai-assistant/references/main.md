@@ -500,7 +500,7 @@ AskUserQuestion({
       "header": "호출 방법",
       "options": [
         {"label": "터미널에서 매번 호출", "description": "오늘까지 한 방식. 빠르지만 매번 터미널 열어야 함. 개발자/터미널 익숙한 사람에게 OK"},
-        {"label": "Claude Desktop (Skill 등록)", "description": "/my-assistant 같은 명령으로 부르기. 자료 자동 로드 추가 셋업 필요"},
+        {"label": "Claude Code 스킬로 등록", "description": "/my-assistant 같은 명령으로 부르기. 자료 자동 로드 추가 셋업 필요"},
         {"label": "본인 SaaS 채팅 UI", "description": "app/views/assistant/chat.html.erb 페이지 + Turbo Stream 스트리밍. 본인만 접근하게 인증 추가"},
         {"label": "디스코드/카톡 봇 (6-3 응용)", "description": "봇이 메시지를 받으면 비서에 질문 전달. 어디 있든 모바일로 접근 가능"}
       ]
@@ -570,7 +570,7 @@ AskUserQuestion({
 전체 정확도: [N/5]
 
 ## 호출 방법
-- [터미널 / Claude Desktop / 본인 SaaS 채팅 UI / 디스코드 봇]
+- [터미널 / Orca의 Claude Code / 본인 SaaS 채팅 UI / 디스코드 봇]
 - 명령: [학습자가 정한 호출 방법 — 예: `myai "질문"` alias]
 
 ## 다음 단계

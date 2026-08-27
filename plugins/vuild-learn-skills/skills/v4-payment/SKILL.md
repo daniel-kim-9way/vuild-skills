@@ -12,7 +12,7 @@ description: "[선택] 결제 연동 (Toss Payments). Triggers: \"v4 payment\", 
 
 ## 사전 조건
 - `/v4-landing` 완료 (랜딩 페이지 완성)
-- 코드 에디터 + Claude Code 확장 프로그램에서 진행
+- Orca의 Claude Code 대화창에서 진행
 
 ## 대화형 학습 프로토콜
 

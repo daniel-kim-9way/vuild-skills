@@ -83,8 +83,24 @@
 >
 > "본인 SaaS는 결제가 필요한가요? 무료 SaaS면 결제 lesson은 개념만 잡고 넘어가도 돼요."
 
-학생 답변 받기:
-- "네, 월 구독이요" / "네, 단건 결제" / "아직 무료" / "잘 모르겠어요"
+AskUserQuestion으로 물어봅니다:
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "본인 SaaS는 결제가 필요한가요?",
+      "header": "결제 필요 여부",
+      "options": [
+        {"label": "월 구독", "description": "매달 정기 결제 (구독 모델)"},
+        {"label": "단건 결제", "description": "필요할 때마다 1회성 결제"},
+        {"label": "아직 무료", "description": "지금은 결제 없음 — 개념만 잡고 넘어감"},
+        {"label": "잘 모르겠어요", "description": "아직 결제 방식을 못 정함"}
+      ]
+    }
+  ]
+})
+```
 
 ---
 
@@ -181,9 +197,29 @@ SMS 발송         네이버 클라우드     받는 사람·메시지      전�
 
 > "결제와 완전히 같죠? **요청 → 결과 받음 → DB에 결과만**. 패턴이 똑같으니까, 한 번 익히면 다른 모든 외부 API도 같은 방식으로 다룰 수 있어요."
 
-질문:
-> "본인 SaaS에 어떤 외부 서비스가 필요할 것 같아요?"
-> "예시: 결제 / AI 요약·번역 / 카톡 알림 / 이메일 발송 / 이미지 생성 / 지도 / SMS… 또는 '아직 없음'"
+질문 — AskUserQuestion으로 물어봅니다 (해당되는 걸 모두 고르게 함):
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "본인 SaaS에 어떤 외부 서비스가 필요할 것 같아요? (해당되는 것 모두)",
+      "header": "외부 서비스",
+      "multiSelect": true,
+      "options": [
+        {"label": "결제", "description": "토스페이먼츠 등 PG로 결제 받기"},
+        {"label": "AI 요약·번역", "description": "Claude API / DeepL 등으로 텍스트 처리"},
+        {"label": "카톡 알림", "description": "카카오 비즈니스 API로 알림 발송"},
+        {"label": "이메일 발송", "description": "SendGrid 등으로 메일 보내기"},
+        {"label": "이미지 생성", "description": "DALL-E 등으로 이미지 만들기"},
+        {"label": "지도", "description": "지도·위치 API"},
+        {"label": "SMS", "description": "문자 메시지 발송"},
+        {"label": "아직 없음", "description": "외부 서비스 필요 없음 / 미정"}
+      ]
+    }
+  ]
+})
+```
 
 학생 답변 받기 (Turn 7에서 파일에 저장).
 
@@ -233,11 +269,23 @@ KAKAO_API_KEY=실제키
 >
 > "Rails의 경우: `ENV['ANTHROPIC_API_KEY']` 한 줄로 .env에서 키를 읽어요. AI에게 '결제 붙여줘' 한마디면 알아서 .env 패턴으로 짜요."
 
-질문:
-> "API key 보관 방법, 들어본 적 있었어요?"
-> - "처음 들어요"
-> - "어렴풋이 들어봤어요"
-> - "이미 알고 있었어요"
+질문 — AskUserQuestion으로 물어봅니다:
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "API key 보관 방법, 들어본 적 있었어요?",
+      "header": "API key 보관",
+      "options": [
+        {"label": "처음 들어요", "description": ".env / .gitignore 개념이 처음"},
+        {"label": "어렴풋이 들어봤어요", "description": "들어는 봤지만 정확히는 몰랐음"},
+        {"label": "이미 알고 있었어요", "description": "key를 코드에 넣으면 안 되는 걸 알고 있었음"}
+      ]
+    }
+  ]
+})
+```
 
 학생 답변 받기.
 
@@ -292,10 +340,26 @@ webhook 비유:
 >
 > "결제는 보통 둘 다 써요. 우리가 결제창 URL 달라고 API 호출 → 사용자 결제 진행 → 토스가 webhook으로 결과 알려줌."
 
-질문:
+질문 — AskUserQuestion으로 물어봅니다 (해당되는 걸 모두 고르게 함):
+
 > "본인 SaaS에 결제가 들어가면 webhook URL 1개가 필요해요. 그 외 다른 webhook이 필요할 것 같은 시나리오가 있어요?"
->
-> "예시: '깃허브 자동 배포', '카카오 챗봇 메시지 수신', '없음'"
+
+```
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "결제 외에 다른 webhook이 필요할 것 같은 시나리오가 있어요? (해당되는 것 모두)",
+      "header": "추가 webhook",
+      "multiSelect": true,
+      "options": [
+        {"label": "깃허브 자동 배포", "description": "코드 push 시 우리 서버에 알림 → 자동 배포"},
+        {"label": "카카오 챗봇 메시지 수신", "description": "챗봇 메시지 받을 때 우리 서버 호출"},
+        {"label": "없음", "description": "결제 webhook 1개면 충분 / 미정"}
+      ]
+    }
+  ]
+})
+```
 
 학생 답변 받기.
 

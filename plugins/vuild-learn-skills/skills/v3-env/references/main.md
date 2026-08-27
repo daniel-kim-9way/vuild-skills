@@ -96,13 +96,13 @@ AskUserQuestion({
 
 ### Turn 2: .env 파일이 뭐고 왜 안전한가
 
-> "본인 빌드킷 폴더에서 `.env` 파일을 한 번 열어 봅시다. Antigravity 좌측 파일 트리에서 최상단을 보면 `.env` 또는 `.env.example`이 보일 거예요."
+> "본인 빌드킷 폴더에서 `.env` 파일을 한 번 열어 봅시다. Orca 파일 목록에서 최상단을 보면 `.env` 또는 `.env.example`이 보일 거예요."
 
 > "보이지 않으면 두 가지 가능성:"
 
 ```
 A. 숨김 파일이라 안 보임 (Mac/Linux의 . 으로 시작하는 파일은 기본 숨김)
-   → Antigravity 설정에서 'Show hidden files' 켜기
+   → Orca 파일 목록은 숨김 파일도 그대로 보여준다. 안 보이면 폴더를 다시 펼쳐 볼 것
 
 B. 진짜로 .env가 없음 (Ch.4-5에서 셋업 안 끝났을 때)
    → 터미널에서: cp .env.example .env

@@ -122,14 +122,52 @@ Tailwind CSS는 반응형 디자인을 쉽게 만들어줍니다. Claude에게 "
 
 본인 프로젝트에 PLAN(기획 문서)이 있으면 먼저 묻는다:
 
-> "PLAN에서 만든 디자인 시스템(색·폰트·여백 토큰)이 있나요? 있다면 그것을 이번에 함께 적용할까요?"
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "PLAN에서 만든 디자인 시스템(색·폰트·여백 토큰)이 있나요? 있다면 이번에 함께 적용할까요?",
+      "header": "디자인 토큰",
+      "options": [
+        {"label": "있어요, 적용", "description": "PLAN의 디자인 토큰을 기준으로 Tailwind 클래스를 정한다"},
+        {"label": "없어요", "description": "오늘 작업하면서 색상 테마가 자연스럽게 정해진다"}
+      ]
+    }
+  ]
+})
 
 옵션별 안내:
-- **있어요** → "좋아요. PLAN의 디자인 토큰을 기준으로 Tailwind 클래스를 정하겠습니다. 적용 범위는 어디까지로 할까요? 전체 페이지 / 헤더·버튼만 / 랜딩 페이지만"
+- **있어요, 적용** → "좋아요. PLAN의 디자인 토큰을 기준으로 Tailwind 클래스를 정하겠습니다." 이어서 적용 범위를 묻는다:
+
+  AskUserQuestion({
+    "questions": [
+      {
+        "question": "디자인 토큰 적용 범위는 어디까지로 할까요?",
+        "header": "적용 범위",
+        "options": [
+          {"label": "전체 페이지", "description": "모든 페이지에 디자인 토큰을 적용"},
+          {"label": "헤더·버튼만", "description": "헤더와 버튼 등 핵심 요소에만 적용"},
+          {"label": "랜딩 페이지만", "description": "랜딩 페이지에만 적용"}
+        ]
+      }
+    ]
+  })
+
 - **없어요** → "괜찮아요. 오늘 작업하면서 색상 테마가 자연스럽게 정해질 거예요."
 
 이어서 묻는다:
-> "기존 인라인 스타일(`style=""`)이 코드에 많다면 덮어쓸까요? 아니면 보존할까요?"
+
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "기존 인라인 스타일(style=\"\")이 코드에 많다면 어떻게 할까요?",
+      "header": "인라인 스타일",
+      "options": [
+        {"label": "덮어쓰기", "description": "기존 인라인 스타일을 Tailwind 클래스로 교체한다"},
+        {"label": "보존", "description": "기존 인라인 스타일을 그대로 두고 작업한다"}
+      ]
+    }
+  ]
+})
 
 확인 후 다음 단계로.
 
@@ -148,7 +186,25 @@ Tailwind CSS는 반응형 디자인을 쉽게 만들어줍니다. Claude에게 "
 | **Stripe** (stripe.com) | 결제 서비스 신뢰감 | 폰트 계층·안심 카피 레이아웃 |
 | **Anthropic Claude** (claude.ai) | AI 서비스 느낌 | 부드러운 그라데이션·타이포 |
 
-> "이 중 가장 마음에 드는 사이트가 있나요? 비슷한 느낌으로 만들어 드릴 수 있어요."
+이 중 가장 마음에 드는 사이트를 고르면 비슷한 느낌으로 만들어 줄 수 있다. 묻는다:
+
+AskUserQuestion({
+  "questions": [
+    {
+      "question": "이 중 가장 마음에 드는 사이트가 있나요? 비슷한 느낌으로 만들어 드릴 수 있어요.",
+      "header": "레퍼런스",
+      "options": [
+        {"label": "Tailwind UI", "description": "공식 Tailwind 컴포넌트 — 카드·네비게이션 레이아웃"},
+        {"label": "shadcn/ui", "description": "미니멀하고 모던 — 버튼·인풋·대화상자 스타일"},
+        {"label": "Vercel", "description": "다크/화이트 둘 다 깔끔 — 히어로 섹션·배경 처리"},
+        {"label": "Linear", "description": "제품 SaaS 신뢰감 — 전체 색상 시스템·여백감"},
+        {"label": "Stripe", "description": "결제 서비스 신뢰감 — 폰트 계층·안심 카피 레이아웃"},
+        {"label": "Anthropic Claude", "description": "AI 서비스 느낌 — 부드러운 그라데이션·타이포"},
+        {"label": "잘 모르겠어요", "description": "특별히 끌리는 곳이 없다 — 작업하며 자연스럽게 정한다"}
+      ]
+    }
+  ]
+})
 
 ---
 

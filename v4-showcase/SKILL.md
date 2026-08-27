@@ -12,7 +12,7 @@ description: "Showcase 등록 + 졸업. Triggers: \"v4 showcase\", \"v4-showcase
 
 ## 사전 조건
 - `/v4-launch` 완료 (서비스 LAUNCH 완료)
-- 코드 에디터 + Claude Code 확장 프로그램에서 진행
+- Orca의 Claude Code 대화창에서 진행
 
 ## 대화형 학습 프로토콜
 
