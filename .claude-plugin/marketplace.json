@@ -13,6 +13,13 @@
       "author": {
         "name": "Vuild"
       }
+    },
+    {
+      "name": "storybook",
+      "source": "./plugins/storybook",
+      "description": "동화 공방: 아이·인형 사진으로 그림 동화와 목소리 MP4를 만들어요. 그림은 Codex(ChatGPT 구독) 또는 fal.ai로 그려요.",
+      "version": "0.1.0",
+      "author": { "name": "Vuild" }
     }
   ]
 }

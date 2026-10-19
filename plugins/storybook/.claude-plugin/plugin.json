@@ -1,0 +1,7 @@
+{
+  "name": "storybook",
+  "description": "아이·인형 사진으로 그림 동화를 만들고, 목소리로 읽어 주는 MP4까지 만들어요 (동화 공방)",
+  "version": "0.1.0",
+  "author": { "name": "Vuild" },
+  "homepage": "https://vuild.kr"
+}
